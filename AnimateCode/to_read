@@ -1,0 +1,24 @@
+import pyautogui
+from pathlib import Path
+
+
+class AutoText:
+    def __init__(self, filename: str) -> None:
+        self.__file = None
+
+    @property
+    def file(self):
+        return self.__file
+
+    @file.setter
+    def file(self, filename: str) -> None:
+        temp = Path(filename)
+        if temp.is_file():
+            self.__file = open(temp, encoding='utf-8')
+        else:
+            print('File doesn\'t exist or path is not correct')
+            self.__file = None
+
+    def Write(self, speed: int = 0.1) -> None:
+        for line in self.__file.readline():
+            pyautogui.write(line, interval=speed)

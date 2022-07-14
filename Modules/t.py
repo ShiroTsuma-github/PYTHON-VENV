@@ -1,0 +1,6 @@
+oceny = (5, 3.5, 4, 5, 4, 5, 5, 3.5, 3, 4, 5, 4, 4.5, 4.5, 4.5, 5, 5, 5, 1, 5, 5, 5, 4.5, 4.5)
+ects =  (4,   5, 3, 2, 4, 2, 2,   1, 1, 2, 3, 3,   2,   2,   2, 1, 1, 6, 1, 4, 1, 3,   5,   1)
+assert len(oceny) == len(ects)
+ect_oceny = tuple([a * b for a, b in zip(oceny, ects)])
+assert len(ect_oceny) == len(oceny)
+print(round(sum(ect_oceny) / sum(ects), 4))
